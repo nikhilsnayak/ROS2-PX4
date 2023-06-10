@@ -64,7 +64,7 @@ MicroXRCEAgent udp4 -p 8888
 ~/QGroundControl.AppImage 
 ```
 
-### 3. In another terminal gz_x500 simulated drone:
+### 3. In another terminal start gz_x500 simulated drone:
 ```
 cd ~/PX4-Autopilot && make px4_sitl gz_x500
 ```
