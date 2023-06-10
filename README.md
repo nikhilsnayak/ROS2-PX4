@@ -40,7 +40,7 @@ sudo make install
 sudo ldconfig /usr/local/lib/
 ```
 
-### 4. Download and Install QGC
+### 4. Download and Install QGC (Optional but Recommended)
 ```
 sudo usermod -a -G dialout $USER
 sudo apt-get remove modemmanager -y
@@ -59,7 +59,7 @@ chmod +x ./QGroundControl.AppImage
 MicroXRCEAgent udp4 -p 8888
 ```
 
-### 2. In another terminal run QGC:
+### 2. In another terminal run QGC:(Only if installed)
 ```
 ~/QGroundControl.AppImage 
 ```
