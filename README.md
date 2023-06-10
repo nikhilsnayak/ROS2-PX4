@@ -21,6 +21,7 @@ source /opt/ros/humble/setup.bash && echo "source /opt/ros/humble/setup.bash" >>
 
 ### 2. Install PX4-Autopilot
 ```
+cd
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
 cd PX4-Autopilot/
@@ -29,6 +30,7 @@ make px4_sitl gz_x500
 
 ### 3. Setup Micro XRCE-DDS Agent & Client
 ```
+cd
 pip3 install --user -U empy pyros-genmsg setuptools
 git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
 cd Micro-XRCE-DDS-Agent
@@ -42,6 +44,7 @@ sudo ldconfig /usr/local/lib/
 
 ### 4. Download and Install QGC (Optional but Recommended)
 ```
+cd
 sudo usermod -a -G dialout $USER
 sudo apt-get remove modemmanager -y
 sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl -y
