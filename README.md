@@ -1,6 +1,8 @@
-# ROS2-PX4 Installation and 
+# ROS2-PX4 Installation and Simulation
 
-## 1. Install ROS2 Humble
+## A. Installation
+
+### 1. Install ROS2 Humble
 ```
 sudo apt update && sudo apt install locales
 sudo locale-gen en_US en_US.UTF-8
@@ -17,7 +19,7 @@ sudo apt install ros-dev-tools
 source /opt/ros/humble/setup.bash && echo "source /opt/ros/humble/setup.bash" >> .bashrc
 ```
 
-## 2. Install PX4-Autopilot
+### 2. Install PX4-Autopilot
 ```
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
@@ -25,7 +27,7 @@ cd PX4-Autopilot/
 make px4_sitl gz_x500
 ```
 
-## 3. Setup Micro XRCE-DDS Agent & Client
+### 3. Setup Micro XRCE-DDS Agent & Client
 ```
 pip3 install --user -U empy pyros-genmsg setuptools
 git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
@@ -38,7 +40,7 @@ sudo make install
 sudo ldconfig /usr/local/lib/
 ```
 
-## 4. Download and Install QGC
+### 4. Download and Install QGC
 ```
 sudo usermod -a -G dialout $USER
 sudo apt-get remove modemmanager -y
@@ -48,4 +50,21 @@ sudo apt install libfuse2 -y
 sudo apt install wget -y
 wget https://d176tv9ibo4jno.cloudfront.net/latest/QGroundControl.AppImage -P ~/QGroundControl.AppImage
 chmod +x ./QGroundControl.AppImage
+```
+
+## B. Simulation
+
+### 1. Open a new terminal and run MicroXRCEAgent:
+```
+MicroXRCEAgent udp4 -p 8888
+```
+
+### 2. In another terminal run QGC:
+```
+~/QGroundControl.AppImage 
+```
+
+### 3. In another terminal gz_x500 simulated drone:
+```
+cd ~/PX4-Autopilot && make px4_sitl gz_x500
 ```
